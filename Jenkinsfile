@@ -27,22 +27,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        success {
-            emailext (
-                subject: "Success: ${currentBuild.fullDisplayName}",
-                body: "The build and test were successful. The app is deployed.",
-                recipientProviders: [culprits()]
-            )
-        }
-
-        failure {
-            emailext (
-                subject: "Failure: ${currentBuild.fullDisplayName}",
-                body: "The build or test failed. The app was not deployed.",
-                recipientProviders: [brokenBuildSuspects()]
-            )
-        }
-    }
 }
