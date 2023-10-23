@@ -11,9 +11,9 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                sh 'docker-compose build'
-                sh 'docker-compose up -d'
-                sh 'docker-compose exec myblog npm test'
+                sh '/usr/local/bin/docker-compose build'
+                sh '/usr/local/bin/docker-compose up -d'
+                sh '/usr/local/bin/docker-compose exec myblog npm test'
             }
         }
     }
