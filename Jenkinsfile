@@ -2,25 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Install Docker') {
-            steps {
-                script {
-                    sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
-                    sh 'sudo sh get-docker.sh'
-                    sh 'sudo usermod -aG docker $USER'  // Add the current user to the docker group
-                    sh 'sudo systemctl enable docker'
-                    sh 'sudo systemctl start docker'
-                }
-            }
-        }
-
-        stage('Install Docker Compose') {
-            steps {
-                sh 'sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose'
-                sh 'sudo chmod +x /usr/local/bin/docker-compose'
-            }
-        }
-
 
         stage('Checkout') {
             steps {
