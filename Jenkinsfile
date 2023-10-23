@@ -2,10 +2,20 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Set PATH for Docker') {
+            steps {
+                script {
+                    def dockerPath = '/usr/local/bin'
+                    def path = env.PATH
+                    path = "${dockerPath}:${path}"
+                    env.PATH = path
+                }
             }
         }
 
