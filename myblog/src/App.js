@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css';
 
-function App() { 
+function App() {
   const [blogs, setBlogs] = useState([])
   useEffect(() => {
     fetch('http://localhost:4000/')
