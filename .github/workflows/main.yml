@@ -1,13 +1,14 @@
-name: Create Test File
+name: Notify Commit
 on:
   push:
     branches:
       - main
 jobs:
-  create-file:
+  send-email:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Create Test File
-        run: touch test0.txt
+      - name: Send Email
+        run: |
+          echo "A commit has been made to the main branch." | mail -s "Commit Notification" enesyildizmr@gmail.com
