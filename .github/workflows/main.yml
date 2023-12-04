@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Send Email
-        run: |
-          echo "A commit has been made to the main branch." | mail -s "Commit Notification" enesyildizmr@gmail.com
+      - name: Samuel L. Jackson
+        uses: lob/action_sam_jackson@0.0.2
+        with:
+          message: 'Hello dear human being'
+          token: ${{secrets.GITHUB_TOKEN}}
